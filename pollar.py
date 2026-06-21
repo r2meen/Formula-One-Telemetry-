@@ -3,7 +3,6 @@ import time
 
 url = "https://api.openf1.org/v1/laps"
 params = {"session_key": "latest"}
-response = requests.get(url, params=params)
 
 last_count = 0
 
@@ -16,6 +15,10 @@ while True:
         
         if current_count > last_count:
             print(f"New laps detected! Now at {current_count} laps (was {last_count})")
+            
+            new_laps = laps[last_count:current_count]
+            for lap in new_laps:
+                print(f"  Driver #{lap['driver_number']} - Lap {lap['lap_number']} - {lap['lap_duration']} seconds")
         else:
             print(f"No change. Still at {current_count} laps")
         
