@@ -2,7 +2,7 @@ import requests
 
 # This endpoint gets the most recent F1 sessions (practice, qualifying, race, etc.)
 url = "https://api.openf1.org/v1/sessions"
-params = {"year": 2026}  # adjust to whatever year has recent data
+params = {"year": 2025}  # adjust to whatever year has recent data
 
 response = requests.get(url, params=params)
 
